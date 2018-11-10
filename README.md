@@ -1,2 +1,4 @@
+
 # titanic-dataset
-Titanic dataset from Kaggle
+
+This is the famous Titanic dataset from Kaggle. Based on a passenger's demographics predict whether he/she survives or not.
