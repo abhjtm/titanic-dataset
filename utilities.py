@@ -1,5 +1,5 @@
 import pandas as pd
-def percent_survivor(df, index):
+def percent_survivor(df, column):
     """
     This function takes the dataframe and the column 
     where the EDA is to be done as input. Next it 
@@ -7,7 +7,8 @@ def percent_survivor(df, index):
     what percentage of passengers survived.
     Finally it returns the percentage survivors.
     """
-    df = pd.pivot_table(df, index=index, aggfunc={'Survived':'sum','PassengerId':'count'})
+    df = df[~df.Survived.isnull()]
+    df = pd.pivot_table(df, index=column, aggfunc={'Survived':'sum','PassengerId':'count'})
     df.loc[:,'Percentage_Survivors'] = df.Survived.div(df.PassengerId)
     return df.Percentage_Survivors
 
